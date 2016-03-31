@@ -28,6 +28,18 @@
             <language language="simple">Hello ${body}</language>
         </transform>
     </route>
+    <route>
+        <from uri="direct:Geonames"/>
+        <setHeader headerName="CamelHttpMethod">
+            <constant>GET</constant>
+        </setHeader>
+        <setHeader headerName="CamelHttpQuery">
+            <simple>q=${header.villeName}&amp;username=m1gil</simple>
+        </setHeader>
+        <to uri="http://api.geonames.org/search"/>
+        <log message="response received: ${body}"/>
+    </route>
+
 </camelContext>
 
 </beans>
