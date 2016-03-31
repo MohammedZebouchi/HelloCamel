@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <camelContext id="routesXML" xmlns="http://camel.apache.org/schema/spring">
+        <route>
+            <from uri="direct:Geonames"/>
+            <setHeader headerName="CamelHttpMethod">
+                <constant>GET</constant>
+            </setHeader>
+            <setHeader headerName="CamelHttpQuery">
+                <simple>q=${header.villeName}&amp;username=test</simple>
+            </setHeader>
+            <to uri="http://api.geonames.org/search"/>
+            <log message="response received: ${body}"/>
+        </route>
+    </camelContext >
+ 
+</beans>
