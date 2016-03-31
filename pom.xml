@@ -24,7 +24,7 @@
 
     <groupId>com.fusesource.byexample.hellocamel</groupId>
     <artifactId>HelloCamel</artifactId>
-    <version>3.1.0</version>
+    <version>3.2.0</version>
 
     <!-- Tells Maven to create an OSGi bundle; must be paired with maven-bundle-plugin (see below) -->
     <packaging>bundle</packaging>
