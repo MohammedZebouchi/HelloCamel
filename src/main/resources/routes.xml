@@ -5,7 +5,7 @@
         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
     <camelContext id="routesXML" xmlns="http://camel.apache.org/schema/spring">
-        <route>
+        <route id="geonameRoute">
             <from uri="direct:Geonames"/>
             <setHeader headerName="CamelHttpMethod">
                 <constant>GET</constant>
