@@ -16,6 +16,17 @@
             <to uri="http://api.geonames.org/search"/>
             <log message="response received: ${body}"/>
         </route>
+        <route id="geo2">
+            <from uri="direct:Geonames"/>
+            <setHeader headerName="CamelHttpMethod">
+                <constant>GET</constant>
+            </setHeader>
+            <setHeader headerName="CamelHttpQuery">
+                <simple>q=${header.villeName}&amp;username=test</simple>
+            </setHeader>
+            <to uri="http://api.geonames.org/search"/>
+            <log message="response received: ${body}"/>
+        </route>
     </camelContext >
  
 </beans>
