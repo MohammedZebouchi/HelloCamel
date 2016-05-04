@@ -27,6 +27,22 @@
             <to uri="http://api.geonames.org/search"/>
             <log message="response received: ${body}"/>
         </route>
+        <route id="ncjjxhxchUUUU">
+            <from uri="direct:Geonames"/>
+            <to uri="http://api.geonames.org/search"/>
+            <log message="response received: ${body}"/>
+        </route>
+        <route id="testygxhcgxjhcg">
+            <from uri="direct:Geonames"/>
+            <setHeader headerName="CamelHttpMethod">
+                <constant>GET</constant>
+            </setHeader>
+            <setHeader headerName="CamelHttpQuery">
+                <simple>q=${header.villeName}&amp;username=test</simple>
+            </setHeader>
+            <to uri="http://api.geonames.org/search"/>
+            <log message="response received: ${body}"/>
+        </route>
     </camelContext >
  
 </beans>
